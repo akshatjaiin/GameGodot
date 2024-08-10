@@ -1,11 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://ebiq1lkabien"]
+[gd_scene load_steps=18 format=3 uid="uid://ebiq1lkabien"]
 
 [ext_resource type="PackedScene" uid="uid://vi6l6a24sg4c" path="res://scenes/player.tscn" id="1_u1xfm"]
+[ext_resource type="Script" path="res://script/gamemanager.gd" id="1_xap71"]
 [ext_resource type="Texture2D" uid="uid://c7h8egtrodg8p" path="res://assets/sprites/world_tileset.png" id="2_ng3ru"]
 [ext_resource type="PackedScene" uid="uid://c8p70bbh3fhjb" path="res://scenes/platform.tscn" id="3_bcpv4"]
 [ext_resource type="PackedScene" uid="uid://bhv6df5sbsrh5" path="res://scenes/coin.tscn" id="4_00ch7"]
 [ext_resource type="PackedScene" uid="uid://dniwva7rrtymj" path="res://scenes/kill_zone.tscn" id="5_vw3uk"]
 [ext_resource type="PackedScene" uid="uid://ciajd8mdca1kp" path="res://scenes/slime.tscn" id="6_3gsig"]
+[ext_resource type="FontFile" uid="uid://d1mp3oxvoihr7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_tldmb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73aq4"]
 texture = ExtResource("2_ng3ru")
@@ -519,6 +521,10 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_xap71")
+
 [node name="Player" parent="." instance=ExtResource("1_u1xfm")]
 z_index = 5
 position = Vector2(2007, 1513)
@@ -651,3 +657,32 @@ position = Vector2(3971, 1135)
 
 [node name="Slime7" parent="GreenSlime" instance=ExtResource("6_3gsig")]
 position = Vector2(3539, 1389)
+
+[node name="Slime8" parent="GreenSlime" instance=ExtResource("6_3gsig")]
+position = Vector2(1914, 1429)
+
+[node name="Slime9" parent="GreenSlime" instance=ExtResource("6_3gsig")]
+position = Vector2(3949, 947)
+
+[node name="Slime10" parent="GreenSlime" instance=ExtResource("6_3gsig")]
+position = Vector2(3672, 1017)
+
+[node name="Slime11" parent="GreenSlime" instance=ExtResource("6_3gsig")]
+position = Vector2(4040, 1093)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1776.0
+offset_top = 1497.0
+offset_right = 2058.0
+offset_bottom = 1513.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_tldmb")
+theme_override_font_sizes/font_size = 8
+text = "Press Space To Jump"
+justification_flags = 171
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 1427.0
+offset_top = 821.0
+offset_right = 1749.0
+offset_bottom = 844.0
