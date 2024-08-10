@@ -40,20 +40,22 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtw4d"]
-radius = 7.0
+radius = 17.2798
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(41, -35)
+collision_layer = 3
 script = ExtResource("1_jvc0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(363.129, 267.567)
-scale = Vector2(1.32056, 1.09796)
+position = Vector2(-40, 24)
+scale = Vector2(2.56666, 2.20707)
 sprite_frames = SubResource("SpriteFrames_pyyb4")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.498136
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(365.129, 272.567)
+position = Vector2(-41, 33)
 scale = Vector2(1, 0.96875)
 shape = SubResource("CircleShape2D_rtw4d")
