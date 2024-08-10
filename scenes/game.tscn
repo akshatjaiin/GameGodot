@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ebiq1lkabien"]
+[gd_scene load_steps=19 format=3 uid="uid://ebiq1lkabien"]
 
 [ext_resource type="PackedScene" uid="uid://vi6l6a24sg4c" path="res://scenes/player.tscn" id="1_u1xfm"]
 [ext_resource type="Script" path="res://script/gamemanager.gd" id="1_xap71"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dniwva7rrtymj" path="res://scenes/kill_zone.tscn" id="5_vw3uk"]
 [ext_resource type="PackedScene" uid="uid://ciajd8mdca1kp" path="res://scenes/slime.tscn" id="6_3gsig"]
 [ext_resource type="FontFile" uid="uid://d1mp3oxvoihr7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_tldmb"]
+[ext_resource type="AudioStream" uid="uid://dccgij53a2h0r" path="res://assets/music/time_for_adventure.mp3" id="9_rf3al"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73aq4"]
 texture = ExtResource("2_ng3ru")
@@ -457,6 +458,33 @@ _data = {
 "move": SubResource("Animation_ekoi3")
 }
 
+[sub_resource type="Animation" id="Animation_cdctu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3345, 1396)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("move_up/Platform4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3291, 1580)]
+}
+
 [sub_resource type="Animation" id="Animation_vq0mc"]
 resource_name = "move up"
 length = 2.0
@@ -484,33 +512,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(3303, 1397), Vector2(3302, 1577)]
-}
-
-[sub_resource type="Animation" id="Animation_cdctu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3345, 1396)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("move_up/Platform4:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3291, 1580)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5cmjk"]
@@ -686,3 +687,9 @@ offset_left = 1427.0
 offset_top = 821.0
 offset_right = 1749.0
 offset_bottom = 844.0
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_rf3al")
+volume_db = 24.0
+autoplay = true
+bus = &"Music"
