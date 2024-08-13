@@ -3,6 +3,9 @@
 [ext_resource type="Script" path="res://script/player.gd" id="1_jvc0r"]
 [ext_resource type="Texture2D" uid="uid://kgudlhyl6xas" path="res://assets/sprites/knight.png" id="1_x2c65"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtw4d"]
+radius = 8.06632
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vlvx"]
 atlas = ExtResource("1_x2c65")
 region = Rect2(0, 0, 32, 32)
@@ -168,13 +171,15 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rtw4d"]
-radius = 8.06632
-
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(44, -31)
 collision_layer = 3
 script = ExtResource("1_jvc0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-46, 28)
+scale = Vector2(1, 0.96875)
+shape = SubResource("CircleShape2D_rtw4d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-46.5083, 23.8358)
@@ -182,8 +187,4 @@ scale = Vector2(1.34427, 1.07276)
 sprite_frames = SubResource("SpriteFrames_pyyb4")
 animation = &"jump"
 autoplay = "jump"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-46, 28)
-scale = Vector2(1, 0.96875)
-shape = SubResource("CircleShape2D_rtw4d")
+frame_progress = 0.991783
